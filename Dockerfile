@@ -8,7 +8,7 @@ COPY . /src/
 
 RUN mvn clean install -DskipTests=true
 
-FROM eclipse-temurin:17-jdk-alpine AS deployer
+FROM amazoncorretto:17-alpine AS deployer
 
 COPY --from=builder /src/target/*.jar /src/target/bankapp.jar
 
